@@ -98,6 +98,7 @@ a:hover, a:focus {
   gap: 1.2rem;
   margin: 0;
   padding: 0.5rem 1rem 0.9rem;
+  align-items: center;
 }
 
 .nav-links a {
@@ -114,6 +115,30 @@ a:hover, a:focus {
 .nav-links a.active:hover,
 .nav-links a.active:focus {
   opacity: 1;
+}
+
+/* Language switcher */
+.lang-switcher {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-left: auto;
+}
+
+.lang-switcher a {
+  opacity: 0.5;
+}
+
+.lang-switcher a.active {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.lang-switcher span {
+  opacity: 0.3;
 }
 
 /* Hamburger toggle */
@@ -178,6 +203,7 @@ section:first-of-type {
     overflow: hidden;
     opacity: 0;
     transition: max-height 280ms ease, opacity 280ms ease, padding 280ms ease;
+    align-items: flex-start;
   }
 
   .nav-links.active { 
@@ -185,6 +211,11 @@ section:first-of-type {
     max-height: 400px;
     opacity: 1;
     padding: 0.5rem 1rem 1rem;
+  }
+
+  .lang-switcher {
+    margin-left: 0;
+    margin-top: 0.5rem;
   }
 
   .toggle-button { display: flex; }
@@ -217,6 +248,10 @@ section:first-of-type {
     page-break-after: avoid;
     max-height: none !important;
     opacity: 1 !important;
+  }
+
+  .lang-switcher {
+    display: none;
   }
 
   main {
