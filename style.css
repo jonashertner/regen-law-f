@@ -17,7 +17,7 @@ body {
   color: #000000;
   font-family: Georgia, "Times New Roman", Times, serif;
   line-height: 1.65;
-  transition: opacity 200ms ease-out;
+  transition: opacity 100ms ease-out;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -247,9 +247,9 @@ section:first-of-type {
 }
 
 /* ===== Focus Improvements ===== */
+:focus,
 :focus-visible {
-  outline: 2px solid #000;
-  outline-offset: 3px;
+  outline: none;
 }
 
 /* ===== Selection ===== */
