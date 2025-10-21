@@ -55,10 +55,10 @@
         return;
       }
 
-      // Fade out and navigate
+      // Fade out and navigate (faster)
       e.preventDefault();
       document.body.classList.add('fade-out');
-      setTimeout(() => { window.location.href = this.href; }, 250);
+      setTimeout(() => { window.location.href = this.href; }, 150);
     });
   });
 

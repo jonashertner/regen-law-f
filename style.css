@@ -17,7 +17,7 @@ body {
   color: #000000;
   font-family: Georgia, "Times New Roman", Times, serif;
   line-height: 1.65;
-  transition: opacity 350ms ease-out;
+  transition: opacity 200ms ease-out;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -61,7 +61,6 @@ a {
 a:hover, a:focus { 
   opacity: 0.6;
 }
-
 
 /* ===== Navigation ===== */
 .site-nav {
@@ -121,11 +120,6 @@ a:hover, a:focus {
   border: 0;
   padding: 6px;
   cursor: pointer;
-}
-
-.toggle-button:focus { 
-  outline: 2px dashed #000; 
-  outline-offset: 4px; 
 }
 
 .toggle-button .bar {
@@ -218,10 +212,6 @@ section:first-of-type {
     page-break-after: avoid;
     max-height: none !important;
     opacity: 1 !important;
-  }
-
-  .skip-link {
-    display: none;
   }
 
   main {
