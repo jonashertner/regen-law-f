@@ -34,7 +34,7 @@
     });
   }
 
-  // Smooth page transitions
+  // Smooth page transitions (only fades main content, keeps navbar)
   document.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
@@ -55,14 +55,14 @@
         return;
       }
 
-      // Fade out and navigate (faster)
+      // Fade out main content and navigate
       e.preventDefault();
       document.body.classList.add('fade-out');
       setTimeout(() => { window.location.href = this.href; }, 150);
     });
   });
 
-  // Fade in on load
+  // Fade in main content on load
   window.addEventListener('load', function() {
     setTimeout(() => {
       document.body.classList.remove('preload');

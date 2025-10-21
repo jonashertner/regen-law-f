@@ -17,18 +17,23 @@ body {
   color: #000000;
   font-family: Georgia, "Times New Roman", Times, serif;
   line-height: 1.65;
-  transition: opacity 100ms ease-out;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-body.preload { opacity: 0; }
-body.fade-out { opacity: 0; }
 
 main {
   max-width: 820px;
   margin: 2.5rem auto;
   padding: 0 1rem 4rem;
+  transition: opacity 150ms ease-out;
+}
+
+body.preload main { 
+  opacity: 0; 
+}
+
+body.fade-out main { 
+  opacity: 0; 
 }
 
 /* ===== Typography ===== */
