@@ -70,6 +70,10 @@ a:hover, a:focus { text-decoration: underline; }
   position: sticky;
   top: 0;
   z-index: 1000;
+  /* Add these properties to fix flickering */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .navbar-header {
