@@ -1,20 +1,19 @@
-// Smooth page transitions and mobile menu
+// Minimal smooth interactions
 (function() {
   'use strict';
 
   const toggleButton = document.querySelector('.toggle-button');
   const navLinks = document.querySelector('.nav-links');
 
-  // Toggle mobile menu with smooth animation
+  // Mobile menu toggle
   if (toggleButton && navLinks) {
     toggleButton.addEventListener('click', function () {
       const isOpen = navLinks.classList.toggle('active');
       toggleButton.setAttribute('aria-expanded', String(isOpen));
     });
 
-    // Close menu when clicking a nav link
-    const navItems = navLinks.querySelectorAll('a');
-    navItems.forEach(item => {
+    // Close menu on link click (mobile)
+    navLinks.querySelectorAll('a').forEach(item => {
       item.addEventListener('click', function() {
         if (window.innerWidth <= 820) {
           navLinks.classList.remove('active');
@@ -35,13 +34,12 @@
     });
   }
 
-  // Smooth fade-out on internal link navigation
-  const allLinks = document.querySelectorAll('a');
-  allLinks.forEach(link => {
+  // Smooth page transitions
+  document.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
       
-      // Skip if it's an external link, fragment link, mailto, or tel
+      // Skip external, fragment, mailto, tel links
       if (!href || 
           href.startsWith('http') || 
           href.startsWith('#') || 
@@ -50,7 +48,7 @@
         return;
       }
 
-      // Skip if it's the current page
+      // Skip if current page
       const currentPage = window.location.pathname.split('/').pop() || 'index.html';
       if (href === currentPage) {
         e.preventDefault();
@@ -60,40 +58,15 @@
       // Fade out and navigate
       e.preventDefault();
       document.body.classList.add('fade-out');
-      
-      setTimeout(() => { 
-        window.location.href = this.href; 
-      }, 300);
+      setTimeout(() => { window.location.href = this.href; }, 250);
     });
   });
 
-  // Smooth fade-in on page load
+  // Fade in on load
   window.addEventListener('load', function() {
-    // Small delay to ensure fonts are loaded
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        document.body.classList.remove('preload');
-      }, 50);
-    });
-  });
-
-  // Smooth scroll to anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        e.preventDefault();
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-        // Update URL without jumping
-        history.pushState(null, null, targetId);
-      }
-    });
+    setTimeout(() => {
+      document.body.classList.remove('preload');
+    }, 50);
   });
 
 })();
